@@ -1,0 +1,16 @@
+{
+  "branches": [
+    "master"
+  ],
+  "dryRun": true,
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    ["@semantic-release/exec", {
+      "verifyReleaseCmd": "node ./ci/update-version.js ${nextRelease.version}"
+    }]
+  ],
+  "publishConfig": {
+    "registry": "http://npm.perseus.ruqimobility.com/"
+  }
+}

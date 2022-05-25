@@ -1,0 +1,8 @@
+FROM node:15.14.0-slim
+
+WORKDIR /docusaurus/
+COPY ./package.json /docusaurus/
+COPY ./yarn.lock /docusaurus/
+
+RUN yarn config set registry https://registry.npmmirror.com/
+RUN yarn install
